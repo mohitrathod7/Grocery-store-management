@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <title>Freshmart Co-op - Feedback</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap"
+              rel="stylesheet">
+        <style>
+          {{navstyle}}
+
+          {{footerstyle}}
+
+          body{
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #a0ff7f 20%, #00ffff 80%);
+          }
+
+          #container{
+            border: 1px solid black;
+            border-bottom-right-radius: 10% 20%;
+            box-shadow: 0 5px 15px 1px mediumvioletred;
+            margin-top: 3.5%;
+            margin-bottom: 1.4%;
+            margin-left: 20%;
+            margin-right: 20%;
+            background: white;
+            display: flex;
+          }
+
+          #feedback{
+            height: 463px;
+            display: block;
+          }
+
+          #feedback-form{
+            width: 100%;
+            margin: 75px;
+          }
+
+          input{
+            margin: 50px 0;
+            height: 50px;
+            width: 250px;
+            border-radius: 10px;
+            text-align: center;
+          }
+
+          textarea{
+            margin: 50px 10px;
+            height: 100px;
+            width: 250px;
+            text-align: center;
+          }
+
+          button{
+            margin: 50px 100px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            background: rgb(255, 60, 60);
+            transition: 0.5s all ease-in-out;
+          }
+
+          button:hover{
+            cursor: pointer;
+            border: 1px solid black;
+            color: black;
+            background: white;
+          }
+
+          input[aria-invalid="true"], textarea[aria-invalid="true"] {
+              border: 1px solid #f00;
+              box-shadow: 0 0 4px 0 #f00;
+          }
+
+          input[aria-invalid="false"], textarea[aria-invalid="false"] {
+              border: 1px solid #0f0;
+              box-shadow: 0 0 4px 0 #0f0;
+          }
+        </style>
+    </head>
+    <body>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="http://127.0.0.1:5000" class="active">Home</a>
+            <a href="http://127.0.0.1:5000/about">About Us</a>
+            <a href="http://127.0.0.1:5000/feedback">Feedback</a>
+            <a id="facebook" href=""><i id="fb-icon" class="fa fa-facebook"></i></a>
+            <a id="a-call" href="tel:+91 1234567890"><i id="call" class="fa fa-phone"></i></a>
+            <a id="a-mail" href="mailto:support@freshmart.com"></a>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="20" height="20"
+                   viewBox="0 0 172 172"
+                   style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" 
+                   stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" 
+                   stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" 
+                   font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                   <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff">
+                   <path d="M28.66667,28.66667c-7.33867,0 -13.32686,5.53715 -14.16536,12.65365l71.4987,
+                   44.67969l71.49869,-44.67969c-0.83849,-7.1165 -6.82669,-12.65365 -14.16536,
+                   -12.65365zM14.33333,55.55566v73.44434c0,7.91917 6.41417,14.33333 14.33333,
+                   14.33333h114.66667c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-73.44434l-67.87337,
+                   42.41211c-2.322,1.44767 -5.26459,1.44767 -7.58659,0z"></path></g></g>
+                </svg>
+            </a>
+            <a id="user" href="http://127.0.0.1:5000/user"><i class="fa fa-user"></i>  {{user}}</a>
+        </div>
+    </nav>
+
+    <div id="container"> 
+        <div id="image">
+            <img style="height: 463px; width: 100%;" src="{{url_for('static', filename='form.png')}}">
+        </div>
+
+        <div id="feedback">
+            <form id="feedback-form" method="POST" action="/sendfeedback">
+                <input id="feedback-username" name="feedback-username" type="text" placeholder="Enter your Username"
+                      style="display: block;"
+                      pattern="^([- \w\d\u00c0-\u024f]+)$" spellcheck="false" required="required"
+                      aria-required="true" aria-invalid="false" value="{{feedback_username}}" {{isreadonly}} required>
+
+                <input id="feedback-emailid" name="feedback-emailid" type="text" placeholder="Enter your Email ID" 
+                      required="required" aria-required="true" aria-invalid="false" value="{{feedback_emailid}}"
+                      style="display: block;"
+                      pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|
+                      [\d]{1,3})){1,2})$" {{isreadonly}} required>
+
+                <textarea style="display: block; resize:none" name="feedback-message" placeholder="Message" required></textarea>
+                <button type="submit" style="display: block;">Submit</button>
+            </form>
+          </div>
+    </div> 
+
+    <section id="footer">
+      <div id="footer-item"><h3>Copyright © www.freshmart.com 2015-2020</h3></div>
+      <div id="footer-item"><h3>All rights reserved!</h3></div>
+    </section>  
+
+    <script>
+      //add event construct for modern browsers or IE
+      //which fires the callback with a pre-converted target reference
+      function addEvent(node, type, callback) {
+        if (node.addEventListener) {
+          node.addEventListener(
+            type,
+            function(e) {
+              callback(e, e.target);
+            },
+            false
+          );
+        } else if (node.attachEvent) {
+          node.attachEvent("on" + type, function(e) {
+            callback(e, e.srcElement);
+          });
+        }
+      }
+
+      //identify whether a field should be validated
+      //ie. true if the field is neither readonly nor disabled,
+      //and has either "pattern", "required" or "aria-invalid"
+      function shouldBeValidated(field) {
+        return (
+          !(field.getAttribute("readonly") || field.readonly) &&
+          !(field.getAttribute("disabled") || field.disabled) &&
+          (field.getAttribute("pattern") || field.getAttribute("required"))
+        );
+      }
+
+      //field testing and validation function
+      function instantValidation(field) {
+        //if the field should be validated
+        if (shouldBeValidated(field)) {
+          //the field is invalid if:
+          //it's required but the value is empty
+          //it has a pattern but the (non-empty) value doesn't pass
+          var invalid =
+            (field.getAttribute("required") && !field.value) ||
+            (field.getAttribute("pattern") &&
+              field.value &&
+              !new RegExp(field.getAttribute("pattern")).test(field.value));
+
+          //add or remove the attribute is indicated by
+          //the invalid flag and the current attribute state
+          //if (!invalid && field.getAttribute("aria-invalid")) {
+          //  field.removeAttribute("aria-invalid");
+          //var x = document.getElementById("myBtn").getAttribute("aria-invalid");
+          if (!invalid && field.getAttribute("aria-invalid")) {
+            field.setAttribute("aria-invalid", "false");
+          } else if (invalid && field.getAttribute("aria-invalid")) {
+            field.setAttribute("aria-invalid", "true");
+          }
+        }
+      }
+
+      //now bind a delegated change event
+      //== THIS FAILS IN INTERNET EXPLORER <= 8 ==//
+      //addEvent(document, 'change', function(e, target)
+      //{
+      //  instantValidation(target);
+      //});
+
+      //now bind a change event to each applicable for field
+      var fields = [
+        document.getElementsByTagName("input"),
+        document.getElementsByTagName("textarea")
+      ];
+      for (var a = fields.length, i = 0; i < a; i++) {
+        for (var b = fields[i].length, j = 0; j < b; j++) {
+          addEvent(fields[i][j], "change", function(e, target) {
+            instantValidation(target);
+          });
+        }
+      }
+    </script>
+
+    </body>
+</html>

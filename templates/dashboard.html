@@ -1,0 +1,505 @@
+<html>
+    <head>
+        <title>Freshmart Co-op - Home</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap"
+              rel="stylesheet">
+    </head>
+    
+    <style>
+      {{navstyle}}
+
+      {{footerstyle}}
+      
+      body{
+        margin: 0;
+        padding: 0;
+        background: #f0fff0;
+      }
+
+      h2{
+        -webkit-text-stroke-width: 1px;
+        font-size: 40px;
+        -webkit-text-fill-color: #f05050;
+        font-family: cursive;
+        text-align: center;
+        margin: 60px;
+        transform: translateY(-18px);
+      }
+
+      .box p{
+        font-size: 19px;
+        font-family: cursive;
+      }
+
+      #content{
+        display: flex;
+        background: #f0fff0;
+        height: 450px;
+      }
+
+      #left-content-box, #box, #left-box #right-box{
+        display: block;
+        margin: 2%;
+      }
+
+      #right-content, #order-history, #change-password, #change-number{
+        margin: 2%;
+      }
+
+      #left-box #right-box{
+        margin: 1%;
+      }
+
+      #left-content{
+        display: block;
+        margin: 2%;
+        width: 25%;
+      }
+
+      #left-content-box, #right-content{
+        border: 1px solid #f0f0f0;
+        box-shadow: 0px 0px 8px 2px #c0c0c0; 
+      }
+
+      .box{
+        background: #fafafa;
+        border: 1px solid #f0f0f0;
+        box-shadow: 0px 0px 8px 2px #c0c0c0; 
+      }
+
+      #left-box p, #right-box p{
+        margin: 20px 0;
+        margin-top: 5px;
+        padding: 0 10px;
+        text-align: left;
+        border-bottom: 1px solid #a6aaad;
+      }
+
+      #left-content-box p{
+        text-decoration: none;
+        display: block;
+        color: #73ff00;
+        text-align: center;
+        font-size: 22px;
+        font-family: cursive;
+        margin: 15px 0;
+      }
+
+      #left-box, #right-box{
+        width: 350px;
+        padding: 3%;
+      }
+
+      span{
+        color: #a6aaad;
+      }
+
+      .item{
+        margin: 30px 0;
+      }
+
+      #signout-button{
+        font-size: 24px;
+        text-decoration: none;
+        color: rgb(253, 67, 67);
+        border: 1px solid black;
+        border-radius: 10px;
+        text-align: right;
+        margin-left: 89%;
+        padding: 10px;
+        margin-top: 1.5%;
+        background: blanchedalmond;
+        transition: 0.5s all ease-in-out
+      }
+
+      #signout-button:hover{
+        cursor: pointer;
+        background: white;
+        color: black;
+      }
+
+      .fa-arrow-circle-right{
+        font-size: 22px;
+      }
+
+      .hide{
+        display: none;
+      }
+
+      .show{
+        display: block;
+      }
+
+      input[aria-invalid="true"], textarea[aria-invalid="true"] {
+        border: 1px solid #f00;
+        box-shadow: 0 0 4px 0 #f00;
+      }
+
+      input[aria-invalid="false"], textarea[aria-invalid="false"] {
+        border: 1px solid #0f0;
+        box-shadow: 0 0 4px 0 #0f0;
+      }
+
+      #numberform{
+        margin: auto;
+      }
+
+      #numberform input{
+        text-align: center;
+        width: 250px;
+        height: 40px;
+        border-radius: 15px;
+        margin: 20px;
+      }
+
+      #numberform input:focus{
+        outline: none;
+      }
+
+      #numberform button{
+        color: red;
+        height: 30px;
+        border: 1px solid red;
+        background: blanchedalmond;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        margin: 20px;
+        transition: 0.4s all ease-in-out;
+      }
+
+      #numberform button:hover{
+        background: white;
+        border: 1px solid black;
+      }
+
+      .box-items{
+        display: flex;
+        cursor: pointer;
+      }
+
+      .box-items:hover{
+        background: #f0f0f0;
+        border: 0.3px solid #c0c0c0;
+      }
+
+      
+      #passwordform{
+        margin: auto;
+      }
+
+      #passwordform input{
+        text-align: center;
+        width: 250px;
+        height: 40px;
+        border-radius: 15px;
+        margin: 20px;
+      }
+
+      #passwordform input:focus{
+        outline: none;
+      }
+
+      #passwordform button{
+        color: red;
+        height: 30px;
+        border: 1px solid red;
+        background: blanchedalmond;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        margin: 20px;
+        transition: 0.4s all ease-in-out;
+      }
+
+      #passwordform button:hover{
+        background: white;
+        border: 1px solid black;
+      }
+    </style>
+    <body>
+      <section id="header">
+        <nav>
+          <div class="topnav" id="myTopnav">
+              <a href="http://127.0.0.1:5000">Home</a>
+              <a href="http://127.0.0.1:5000/about">About Us</a>
+              <a href="http://127.0.0.1:5000/feedback">Feedback</a>
+              <a id="facebook" href=""><i id="fb-icon" class="fa fa-facebook"></i></a>
+              <a id="a-call" href="tel:+91 1234567890"><i id="call" class="fa fa-phone"></i></a>
+              <a id="a-mail" href="mailto:support@freshmart.com"></a>
+                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="20" height="20"
+                     viewBox="0 0 172 172"
+                     style=" fill:#bd8282;"><g fill="none" fill-rule="nonzero" stroke="none" 
+                     stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" 
+                     stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" 
+                     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                     <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff">
+                     <path d="M28.66667,28.66667c-7.33867,0 -13.32686,5.53715 -14.16536,12.65365l71.4987,
+                     44.67969l71.49869,-44.67969c-0.83849,-7.1165 -6.82669,-12.65365 -14.16536,
+                     -12.65365zM14.33333,55.55566v73.44434c0,7.91917 6.41417,14.33333 14.33333,
+                     14.33333h114.66667c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-73.44434l-67.87337,
+                     42.41211c-2.322,1.44767 -5.26459,1.44767 -7.58659,0z"></path></g></g>
+                  </svg>
+              </a>
+              <a id="user" href="http://127.0.0.1:5000/user"><i class="fa fa-user"></i>  {{  user}}</a>
+          </div>
+      </nav>
+      
+      </section>
+
+      <section id="signout" style="background: #f0fff0;">
+          <form method="POST" action="/signout">
+              <button id="signout-button" type="submit"><i class="fa fa-sign-out">Sign Out</i></button>
+          </form>
+      </section>
+
+      <section id="content">
+          <p style="text-align: center;">{{text}}</p>
+
+          <section id="left-content" style="min-width: 322px;">
+                <div class="box item" id="left-content-box" style="display: block; margin: 1px; min-width: 322px;">
+                    <div onclick="details()" class="box-items">
+                        <div style="text-align: left; padding: 10px;"><p>Basic Details</p></div>
+                        <div style="text-align: right; padding: 10px; margin: auto; margin-right: 20px;"><i class="fa fa-arrow-circle-right"></i></div>
+                    </div>
+
+                    <div onclick="history()" class="box-items">
+                        <div style="text-align: left; padding: 10px;"><p>Order History</p></div>
+                        <div style="text-align: right; padding: 10px; margin: auto; margin-right: 20px;"><i class="fa fa-arrow-circle-right"></i></div>
+                    </div>
+
+                    <div onclick="changePassword()" class="box-items">
+                        <div style="text-align: left; padding: 10px;"><p>Change Password</p></div>
+                        <div style="text-align: right; padding: 10px; margin: auto; margin-right: 20px;"><i class="fa fa-arrow-circle-right"></i></div>
+                    </div>
+
+                    <div onclick="changeNumber()" class="box-items">
+                        <div style="text-align: left; padding: 10px;"><p>Change Mobile Number</p></div>
+                        <div style="text-align: right; padding: 10px; margin: auto; margin-right: 20px;"><i class="fa fa-arrow-circle-right"></i></div>
+                    </div>
+                </div>
+          </section>
+
+          <section id="right-content" class="{{display1}}">
+              <div class="box" style="display: flex;">
+                  <div id="left-box">
+                      <div class="item"><span>First Name : </span><p>{{f_name}}</p></div>
+                      <div class="item"><span>Date of Birth (DD/MM/YYYY) : </span><p>{{dob}}</p></div>
+                      <div class="item"><span>Mobile Number : </span><p>{{contact}}</p></div>
+                      <div class="item"><span>Customer ID : </span><p>{{cid}}</p></div>
+                  </div>
+                  <div id="right-box">
+                      <div class="item"><span>Last Name : </span><p>{{l_name}}</p></div>
+                      <div class="item"><span>Gender</span><p>{{gender}}</p></div>
+                      <div class="item"><span>E-Mail ID : </span><p>{{mail}}</p></div>
+                      <div class="item"><span>Username : </span><p>{{user}}</p></div>
+                  </div>
+              </div>
+          </section>
+
+          <section id="order-history" class="{{display2}}">
+              <div class="box" style="display: {{display_order}}; height: 363px; width: auto; 
+                                      overflow-y: scroll; padding: 30px; padding-top: 0;">                                      
+                  <div>  
+                        <!-- For loop logic of jinja template -->
+                        <!-- table rows -->
+                        {%for i in range(0, len)%}
+                        <div>   
+                            <div style="display: flex; margin-top: 40px; margin-bottom: 5px;">     
+                                <span style="width: 100px; margin: 0; margin-right: 30px;">Booking ID</span> 
+                                <span style="width: 150px; margin: 0; margin-right: 30px;">Date</span> 
+                                <span style="width: 100px; margin: 0; margin-right: 30px;">Time</span> 
+                                <span style="width: 200px; margin: 0;">Store Name</span>     
+                            </div> 
+                            <div style="display: flex; border-bottom: 0.5px solid darkgrey;">
+                                <p style="width: 100px; margin: 5px 0; margin-right: 30px">{{bookingID[i]}}</p> 
+                                <p style="width: 150px; margin: 5px 0; margin-right: 30px">{{dates[i]}}</p> 
+                                <p style="width: 100px; margin: 5px 0; margin-right: 30px">{{times[i]}}</p> 
+                                <p style="width: 200px; margin: 5px 0;">{{storeNames[i]}}</p> 
+                            </div>
+                        </div>
+                        {%endfor%} 
+                        <div style="margin-bottom: 20px">
+                            <br>
+                        </div>
+                  </div> 
+              </div>
+
+              <div id="abc" class="box" style="display: {{display_message}};">
+                  <h2>No orders till now</h2>
+              <div>   
+          </section>
+
+          <section id="change-password" class="{{display3}}">
+            <div class="box" style="display: flex; width: 400px; text-align: center;">
+                  <form method="POST" id="passwordform" action="/changepassword">
+                      <input id="current-password" name="current-password" placeholder="Enter current Password"
+                             type="text" required="required" aria-required="true" aria-invalid="false">
+                      <br><br>
+
+                      <input id="new-password" name="new-password" placeholder="Enter new Password"
+                             type="text" required="required" aria-required="true" aria-invalid="false">
+
+                      <br><br><br>
+
+                      <button type="submit">Change</button>
+                  </form>   
+              </div>
+          </section>
+
+          <section id="change-number" class="{{display4}}">
+              <div class="box" style="display: flex; width: 400px; text-align: center;">
+                  <form method="POST" id="numberform" action="/changenumber">
+                      <input id="current-number" name="current-number" placeholder="Enter current Mobile Number"
+                      type="number" required="required" aria-required="true" aria-invalid="false"
+                      pattern="^[7-9]{1}[0-9]{9}">
+                      <br><br>
+
+                      <input id="new-number" name="new-number" placeholder="Enter new Mobile Number"
+                             type="number" required="required" aria-required="true" aria-invalid="false"
+                             pattern="^[7-9]{1}[0-9]{9}">
+
+                      <br><br><br>
+
+                      <button type="submit">Change</button>
+                  </form>   
+              </div>
+          </section>
+
+      </section>
+
+      <section id="footer">
+          <div id="footer-item"><h3>Copyright © www.freshmart.com 2015-2020</h3></div>
+          <div id="footer-item"><h3>All rights reserved!</h3></div>
+      </section>  
+    </body>
+
+    <script>
+      // ----------------------------- For States -------------------------------
+      function details() {
+          document.getElementById("right-content").classList.add("show");
+          document.getElementById("order-history").classList.remove("show");
+          document.getElementById("change-password").classList.remove("show");
+          document.getElementById("change-number").classList.remove("show");
+          document.getElementById("right-content").classList.remove("hide");
+          document.getElementById("order-history").classList.add("hide");
+          document.getElementById("change-password").classList.add("hide");
+          document.getElementById("change-number").classList.add("hide");
+      }
+
+      function history() {
+          document.getElementById("order-history").classList.add("show");
+          document.getElementById("right-content").classList.remove("show");
+          document.getElementById("change-password").classList.remove("show");
+          document.getElementById("change-number").classList.remove("show");
+          document.getElementById("order-history").classList.remove("hide");
+          document.getElementById("right-content").classList.add("hide");
+          document.getElementById("change-password").classList.add("hide");
+          document.getElementById("change-number").classList.add("hide");
+          
+      }
+
+      function changePassword() {
+          document.getElementById("change-password").classList.add("show");
+          document.getElementById("right-content").classList.remove("show");
+          document.getElementById("order-history").classList.remove("show");
+          document.getElementById("change-number").classList.remove("show");
+          document.getElementById("change-password").classList.remove("hide");
+          document.getElementById("order-history").classList.add("hide");
+          document.getElementById("right-content").classList.add("hide");
+          document.getElementById("change-number").classList.add("hide");
+      }
+
+      function changeNumber() {
+          document.getElementById("change-number").classList.add("show");
+          document.getElementById("right-content").classList.remove("show");
+          document.getElementById("order-history").classList.remove("show");
+          document.getElementById("change-password").classList.remove("show");
+          document.getElementById("change-number").classList.remove("hide");
+          document.getElementById("right-content").classList.add("hide");
+          document.getElementById("order-history").classList.add("hide");
+          document.getElementById("change-password").classList.add("hide");
+      }
+
+      //add event construct for modern browsers or IE
+      //which fires the callback with a pre-converted target reference
+      function addEvent(node, type, callback) {
+        if (node.addEventListener) {
+          node.addEventListener(
+            type,
+            function(e) {
+              callback(e, e.target);
+            },
+            false
+          );
+        } else if (node.attachEvent) {
+          node.attachEvent("on" + type, function(e) {
+            callback(e, e.srcElement);
+          });
+        }
+      }
+      
+      //identify whether a field should be validated
+      //ie. true if the field is neither readonly nor disabled,
+      //and has either "pattern", "required" or "aria-invalid"
+      function shouldBeValidated(field) {
+        return (
+          !(field.getAttribute("readonly") || field.readonly) &&
+          !(field.getAttribute("disabled") || field.disabled) &&
+          (field.getAttribute("pattern") || field.getAttribute("required"))
+        );
+      }
+      
+      //field testing and validation function
+      function instantValidation(field) {
+        //if the field should be validated
+        if (shouldBeValidated(field)) {
+          //the field is invalid if:
+          //it's required but the value is empty
+          //it has a pattern but the (non-empty) value doesn't pass
+          var invalid =
+            (field.getAttribute("required") && !field.value) ||
+            (field.getAttribute("pattern") &&
+              field.value &&
+              !new RegExp(field.getAttribute("pattern")).test(field.value));
+      
+          //add or remove the attribute is indicated by
+          //the invalid flag and the current attribute state
+          //if (!invalid && field.getAttribute("aria-invalid")) {
+          //  field.removeAttribute("aria-invalid");
+          //var x = document.getElementById("myBtn").getAttribute("aria-invalid");
+          if (!invalid && field.getAttribute("aria-invalid")) {
+            field.setAttribute("aria-invalid", "false");
+          } else if (invalid && field.getAttribute("aria-invalid")) {
+            field.setAttribute("aria-invalid", "true");
+          }
+        }
+      }
+      
+      //now bind a delegated change event
+      //== THIS FAILS IN INTERNET EXPLORER <= 8 ==//
+      //addEvent(document, 'change', function(e, target)
+      //{
+      //  instantValidation(target);
+      //});
+      
+      //now bind a change event to each applicable for field
+      var fields = [
+        document.getElementsByTagName("input"),
+        document.getElementsByTagName("textarea")
+      ];
+
+      for (var a = fields.length, i = 0; i < a; i++) {
+        for (var b = fields[i].length, j = 0; j < b; j++) {
+          addEvent(fields[i][j], "change", function(e, target) {
+            instantValidation(target);
+          });
+        }
+      }
+    </script>
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Freshmart Co-op - Feedback</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap"
+              rel="stylesheet">
+        <style>
+          {{navstyle}}
+
+          {{footerstyle}}
+
+          body{
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #a0ff7f 20%, #00ffff 80%);
+          }
+
+          #container{
+            height: 463px;
+            border: 1px solid black;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 10% 20%;
+            box-shadow: 0 5px 15px 1px mediumvioletred;
+            margin-top: 3.5%;
+            margin-bottom: 1.4%;
+            margin-left: 20%;
+            margin-right: 20%;
+            background: white;
+            display: block;
+            text-align: center;
+            justify-content: center;
+          }
+
+          #container p{
+            margin: auto;
+            font-size: 40px;
+            font-weight: 800;
+            font-family: cursive;
+            color: yellow;
+            -webkit-text-stroke-width: 1.5px;
+            -webkit-text-stroke-color: black;
+          }
+        </style>
+    </head>
+<body>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="http://127.0.0.1:5000" class="active">Home</a>
+            <a href="http://127.0.0.1:5000/about">About Us</a>
+            <a href="http://127.0.0.1:5000/feedback">Feedback</a>
+            <a id="facebook" href=""><i id="fb-icon" class="fa fa-facebook"></i></a>
+            <a id="a-call" href="tel:+91 1234567890"><i id="call" class="fa fa-phone"></i></a>
+            <a id="a-mail" href="mailto:support@freshmart.com"></a>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="20" height="20"
+                   viewBox="0 0 172 172"
+                   style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" 
+                   stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" 
+                   stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" 
+                   font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                   <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff">
+                   <path d="M28.66667,28.66667c-7.33867,0 -13.32686,5.53715 -14.16536,12.65365l71.4987,
+                   44.67969l71.49869,-44.67969c-0.83849,-7.1165 -6.82669,-12.65365 -14.16536,
+                   -12.65365zM14.33333,55.55566v73.44434c0,7.91917 6.41417,14.33333 14.33333,
+                   14.33333h114.66667c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-73.44434l-67.87337,
+                   42.41211c-2.322,1.44767 -5.26459,1.44767 -7.58659,0z"></path></g></g>
+                </svg>
+            </a>
+            <a id="user" href="http://127.0.0.1:5000/user"><i class="fa fa-user"></i>  {{user}}</a>
+        </div>
+    </nav>
+
+    <div id="container">
+        <p style="margin-top: 20%">Feedback sent successfully.</p>
+        <br>
+        <p>Thankyou for your valuable feedback.</p>
+    </div>
+
+    <section id="footer">
+        <div id="footer-item"><h3>Copyright © www.freshmart.com 2015-2020</h3></div>
+        <div id="footer-item"><h3>All rights reserved!</h3></div>
+    </section>  
+</body>
+</html>  

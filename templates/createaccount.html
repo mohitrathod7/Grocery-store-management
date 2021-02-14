@@ -1,0 +1,302 @@
+<html>
+    <head>
+        <title>Freshmart Co-op - Create Account</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap"
+              rel="stylesheet">
+    </head>
+
+    <style>
+    {{navstyle}}
+
+    {{footerstyle}}
+
+
+    body{
+        margin: 0;
+        padding: 0;
+        background: #94ff70;
+    }
+
+    form{
+      width: 50%;
+    }
+
+    container{
+      width: 100%;
+    }
+
+    input[aria-invalid="true"], textarea[aria-invalid="true"] {
+        border: 1px solid #f00;
+        box-shadow: 0 0 4px 0 #f00;
+    }
+
+    input[aria-invalid="false"], textarea[aria-invalid="false"] {
+        border: 1px solid #0f0;
+        box-shadow: 0 0 4px 0 #0f0;
+    }
+
+    input{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="number"], button{
+      height: 50px;
+      width: 30%;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="text"] #emailid{
+      height: 50px;
+      width: 50%;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="password"]{
+      outline: none;
+      height: 50px;
+      width: 40%;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    input[type="radio"]{
+      outline: none;
+      height: 20px;
+      width: 10%;
+      text-align: center;
+      font-size: 16px;
+    }
+    
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+    }
+
+    input[type="checkbox"] {
+        display:none;
+        outline: none;
+    }
+
+    input[type="checkbox"] + img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"] + img:checked {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    form{
+      text-align: center;
+      height: 85%;
+      width: 50%;
+      border-radius: 25px;
+      margin: auto;
+      padding: 1%;
+    }
+
+    @media screen and (max-width: 900px){
+      form{
+        width: 80%;
+      }
+    }
+    </style>
+
+<body>
+    <section id="header">
+      <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="http://127.0.0.1:5000" class="active">Home</a>
+            <a href="http://127.0.0.1:5000/about">About Us</a>
+            <a href="http://127.0.0.1:5000/feedback">Feedback</a>
+            <a id="facebook" href=""><i id="fb-icon" class="fa fa-facebook"></i></a>
+            <a id="a-call" href="tel:+91 1234567890"><i id="call" class="fa fa-phone"></i></a>
+            <a id="a-mail" href="mailto:support@freshmart.com"></a>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="20" height="20"
+                   viewBox="0 0 172 172"
+                   style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" 
+                   stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" 
+                   stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" 
+                   font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                   <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff">
+                   <path d="M28.66667,28.66667c-7.33867,0 -13.32686,5.53715 -14.16536,12.65365l71.4987,
+                   44.67969l71.49869,-44.67969c-0.83849,-7.1165 -6.82669,-12.65365 -14.16536,
+                   -12.65365zM14.33333,55.55566v73.44434c0,7.91917 6.41417,14.33333 14.33333,
+                   14.33333h114.66667c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-73.44434l-67.87337,
+                   42.41211c-2.322,1.44767 -5.26459,1.44767 -7.58659,0z"></path></g></g>
+                </svg>
+            </a>
+            <a id="user" href="http://127.0.0.1:5000/user"><i class="fa fa-user"></i>  {{user}}</a>
+        </div>
+    </nav>
+    
+    </section>
+
+    <section id="content">
+        <form method="post" action="/submit">
+            <div class="container">
+                <h2>Create your Account</h2>
+                <div class="box">
+                    <input id="firstname" name="firstname" type="text" placeholder="Enter your first name" 
+                           pattern="^([- \w\d\u00c0-\u024f]+)$" spellcheck="false" required="required" 
+                           aria-required="true" aria-invalid="false">
+                    <input id="lastname" name="lastname" type="text" placeholder="Enter your last name" 
+                           pattern="^([- \w\d\u00c0-\u024f]+)$" spellcheck="false" required="required" 
+                           aria-required="true" aria-invalid="false">
+                </div>
+                
+                <div class="box">
+                    <input id="username" name="username" type="text" placeholder="Enter your Username"
+                           pattern="^([- \w\d\u00c0-\u024f]+)$" spellcheck="false" required="required"
+                           aria-required="true" aria-invalid="false">
+                </div>
+
+                <div class="box">
+                    <input id="password" name="password" type="password" placeholder="Enter your password" 
+                           pattern="^([- \w\d\u00c0-\u024f]+)$" spellcheck="false" required="required" aria-required="true">
+                    <input type="checkbox" class="checkbox">
+                    <img id="img" onclick="showPassword()" src="{{url_for('static', filename='eye-unchecked.png')}}">
+                </div>
+
+                <div class="box">
+                    <h3>Gender</h3>
+                    <input type="radio" id="male" name="gender" value="Male" for="gender" checked> Male
+                    <input type="radio" id="female" name="gender" value="Female" for="name">  Female
+                    <input type="radio" id="other" name="gender" value="Other" for="name"> Other
+                    
+                </div>
+
+                <div class="box">
+                    <h3>Enter your Date of Birth</h3>
+                    <input type="number" id="date" name="date" min="1" max="31" placeholder="Date" required>
+                    <input type="number" id="month" name="month" min="1" max="12" placeholder="Month" required>
+                    <input type="number" id="year" name="year" min="1920" max="2020" placeholder="Year" required>
+                </div>
+                
+                <div class="box">
+                    <input id="emailid" name="emailid" type="text" placeholder="Enter your Email ID" required="required"
+                           aria-required="true" aria-invalid="false"
+                           pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$">
+                </div>
+
+                
+                <div class="box">
+                    <input id="contact" name="contact" type="number" placeholder="Enter your Phone Number"
+                           required="required" aria-required="true" aria-invalid="false" pattern="^[7-9]{1}[0-9]{9}">
+                </div>
+            </div>
+
+            <div class="box">
+                <button style="cursor: pointer;" type="submit">Create Account</button>
+            </div>
+
+            <p>{{message}}</p>
+        </form>
+    </section>
+</body>
+
+<script>
+function showPassword() {
+  var x = document.getElementById("password");
+  if (x.type == "password") {
+    x.type = "text";
+    document.getElementById("img").src = "{{url_for('static', filename='eye-checked.png')}}";
+  } else {
+    x.type = "password";
+    document.getElementById("img").src = "{{url_for('static', filename='eye-unchecked.png')}}";
+  }
+}
+
+
+//add event construct for modern browsers or IE
+//which fires the callback with a pre-converted target reference
+function addEvent(node, type, callback) {
+  if (node.addEventListener) {
+    node.addEventListener(
+      type,
+      function(e) {
+        callback(e, e.target);
+      },
+      false
+    );
+  } else if (node.attachEvent) {
+    node.attachEvent("on" + type, function(e) {
+      callback(e, e.srcElement);
+    });
+  }
+}
+
+//identify whether a field should be validated
+//ie. true if the field is neither readonly nor disabled,
+//and has either "pattern", "required" or "aria-invalid"
+function shouldBeValidated(field) {
+  return (
+    !(field.getAttribute("readonly") || field.readonly) &&
+    !(field.getAttribute("disabled") || field.disabled) &&
+    (field.getAttribute("pattern") || field.getAttribute("required"))
+  );
+}
+
+//field testing and validation function
+function instantValidation(field) {
+  //if the field should be validated
+  if (shouldBeValidated(field)) {
+    //the field is invalid if:
+    //it's required but the value is empty
+    //it has a pattern but the (non-empty) value doesn't pass
+    var invalid =
+      (field.getAttribute("required") && !field.value) ||
+      (field.getAttribute("pattern") &&
+        field.value &&
+        !new RegExp(field.getAttribute("pattern")).test(field.value));
+
+    //add or remove the attribute is indicated by
+    //the invalid flag and the current attribute state
+    //if (!invalid && field.getAttribute("aria-invalid")) {
+    //  field.removeAttribute("aria-invalid");
+    //var x = document.getElementById("myBtn").getAttribute("aria-invalid");
+    if (!invalid && field.getAttribute("aria-invalid")) {
+      field.setAttribute("aria-invalid", "false");
+    } else if (invalid && field.getAttribute("aria-invalid")) {
+      field.setAttribute("aria-invalid", "true");
+    }
+  }
+}
+
+//now bind a delegated change event
+//== THIS FAILS IN INTERNET EXPLORER <= 8 ==//
+//addEvent(document, 'change', function(e, target)
+//{
+//  instantValidation(target);
+//});
+
+//now bind a change event to each applicable for field
+var fields = [
+  document.getElementsByTagName("input"),
+  document.getElementsByTagName("textarea")
+];
+
+for (var a = fields.length, i = 0; i < a; i++) {
+  for (var b = fields[i].length, j = 0; j < b; j++) {
+    addEvent(fields[i][j], "change", function(e, target) {
+      instantValidation(target);
+    });
+  }
+}
+</script>
+</html>
